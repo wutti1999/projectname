@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const books = require('./db')
 
+
+//ค้นหาคำที่มีคำว่า fast and
 app.get('/', (req, res) => {
     //; 22160
     let b = []
@@ -14,7 +16,7 @@ app.get('/', (req, res) => {
     })
   res.json(b)
 })
-
+//เรียงหนัง เเล้วเอาเเค่ 10 ตัว
 app.get('/joe', async(req, res) => { 
      let b = books.sort(function (a, b) {
         if (a.id < b.id) {
@@ -27,6 +29,7 @@ app.get('/joe', async(req, res) => {
     });
   res.json(b)
 })
+//หาค่าทั้งหมดของหนังที่มีใน database
 app.get('/1112', async(req, res) => { 
     const b = books.length;
     // for(let i = 0; i < array.length; ++i){
